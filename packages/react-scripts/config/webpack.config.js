@@ -167,6 +167,12 @@ module.exports = function(webpackEnv) {
       chunkFilename: isEnvProduction
         ? 'static/js/[name].[chunkhash:8].chunk.js'
         : isEnvDevelopment && 'static/js/[name].chunk.js',
+      // Define output as library
+      ...(isEnvProduction ? {
+        libraryTarget: 'umd',
+        library: 'component',
+        umdNamedDefine: true,
+      } : {}),
       // We inferred the "public path" (such as / or /my-project) from homepage.
       // We use "/" in development.
       publicPath: publicPath,
