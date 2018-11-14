@@ -93,6 +93,14 @@ module.exports = function(
 
   const useTypeScript = appPackage.dependencies['typescript'] != null;
 
+  // Set library entry
+  appPackage.main = './build/main.js';
+
+  // Set typescript declaration file
+  if(useTypeScript) {
+    appPackage.types = './build/Component.d.ts';
+  }
+
   // Setup the script rules
   appPackage.scripts = {
     start: 'react-scripts start',
