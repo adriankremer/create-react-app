@@ -96,7 +96,9 @@ module.exports = function(
   // Setup the script rules
   appPackage.scripts = {
     start: 'react-scripts start',
-    build: 'react-scripts build',
+    build: !useTypeScript ?
+      'react-scripts build' :
+      'react-scripts build && tsc -d --declarationDir ./build/ --emitDeclarationOnly --jsx preserve --allowSyntheticDefaultImports  ./src/react-app-env.d.ts ./src/Component.tsx',
     test: 'react-scripts test',
     eject: 'react-scripts eject',
   };

@@ -1,8 +1,8 @@
 {
-  "name": "react-scripts",
+  "name": "react-scripts-component",
   "version": "2.1.1",
-  "description": "Configuration and scripts for Create React App.",
-  "repository": "facebook/create-react-app",
+  "description": "Configuration and scripts for Create React components.",
+  "repository": "adriankremer/create-react-component",
   "license": "MIT",
   "engines": {
     "node": ">=6"
