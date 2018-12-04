@@ -1,6 +1,6 @@
 {
   "name": "react-scripts-component",
-  "version": "2.2.10",
+  "version": "2.2.11",
   "description": "Configuration and scripts for Create React components.",
   "repository": "adriankremer/create-react-component",
   "license": "MIT",
@@ -8,7 +8,10 @@
     "node": ">=6"
   },
   "keywords": [
-    "react components"
+    "react",
+    "components",
+    "create-react-app",
+    "create react components"
   ],
   "bugs": {
     "url": "https://github.com/facebook/create-react-app/issues"
