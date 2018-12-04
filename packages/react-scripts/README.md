@@ -2,15 +2,21 @@
 
 This is a fork of the standard ````react-scripts```` to create react components as modules (umd) designed for including in React Apps
 e.g.
-`import Component from 'my-created-component';`
+```js
+import Component from 'my-created-component';
+```
 
 
 ### Usage
-ESNext  
-`create-react-app {component-name} --scripts-version=react-scripts-component`
+Standard  
+```sh
+create-react-app {component-name} --scripts-version=react-scripts-component
+```
 
 TypeScript  
-`create-react-app {component-name} --scripts-version=react-scripts-component --typescript`
+```sh
+create-react-app {component-name} --scripts-version=react-scripts-component --typescript
+```
 
 * note for typescript: the component build creates declaration files and points to them in the package.json 
 
