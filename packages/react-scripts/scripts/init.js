@@ -98,7 +98,7 @@ module.exports = function(
 
   // Set typescript declaration file
   if(useTypeScript) {
-    appPackage.types = './build/Component.d.ts';
+    appPackage.types = './build/index.d.ts';
   }
 
   // Setup the script rules
