@@ -106,7 +106,7 @@ module.exports = function(
     start: 'react-scripts start',
     build: !useTypeScript ?
       'react-scripts build' :
-      'react-scripts build && tsc -d --declarationDir ./build/ --emitDeclarationOnly --jsx preserve --allowSyntheticDefaultImports  ./src/react-app-env.d.ts ./src/Component.tsx',
+      'react-scripts build && tsc -d --declarationDir ./build/ --emitDeclarationOnly --jsx preserve --allowSyntheticDefaultImports  ./src/react-app-env.d.ts ./src/index.tsx',
     test: 'react-scripts test',
     eject: 'react-scripts eject',
   };
