@@ -13,7 +13,7 @@ const path = require('path');
 const webpack = require('webpack');
 const resolve = require('resolve');
 const PnpWebpackPlugin = require('pnp-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('hreact-scripts-componenttml-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin');
 const TerserPlugin = require('terser-webpack-plugin');
@@ -168,11 +168,13 @@ module.exports = function(webpackEnv) {
         ? '[name].[chunkhash:8].chunk.js'
         : isEnvDevelopment && 'static/js/[name].chunk.js',
       // Define output as library
-      ...(isEnvProduction ? {
-        libraryTarget: 'umd',
-        library: 'component',
-        umdNamedDefine: true,
-      } : {}),
+      ...(isEnvProduction
+        ? {
+            libraryTarget: 'umd',
+            library: 'component',
+            umdNamedDefine: true,
+          }
+        : {}),
       // We inferred the "public path" (such as / or /my-project) from homepage.
       // We use "/" in development.
       publicPath: publicPath,
@@ -299,28 +301,41 @@ module.exports = function(webpackEnv) {
 
         // First, run the linter.
         // It's important to do this before Babel processes the JS.
-        {
-          test: /\.(js|mjs|jsx)$/,
-          enforce: 'pre',
-          use: [
-            {
-              options: {
-                formatter: require.resolve('react-dev-utils/eslintFormatter'),
-                eslintPath: require.resolve('eslint'),
-                // @remove-on-eject-begin
-                baseConfig: {
-                  extends: [require.resolve('eslint-config-react-app')],
-                  settings: { react: { version: '999.999.999' } },
+        ...(!useTypeScript
+          ? {
+              test: /\.(js|mjs|jsx)$/,
+              enforce: 'pre',
+              use: [
+                {
+                  options: {
+                    formatter: require.resolve(
+                      'react-dev-utils/eslintFormatter'
+                    ),
+                    eslintPath: require.resolve('eslint'),
+                    // @remove-on-eject-begin
+                    baseConfig: {
+                      extends: [require.resolve('eslint-config-react-app')],
+                      settings: { react: { version: '999.999.999' } },
+                    },
+                    ignore: false,
+                    useEslintrc: false,
+                    // @remove-on-eject-end
+                  },
+                  loader: require.resolve('eslint-loader'),
                 },
-                ignore: false,
-                useEslintrc: false,
-                // @remove-on-eject-end
-              },
-              loader: require.resolve('eslint-loader'),
-            },
-          ],
-          include: paths.appSrc,
-        },
+              ],
+              include: paths.appSrc,
+            }
+          : {
+              test: /\.ts$/,
+              enforce: 'pre',
+              use: [
+                {
+                  loader: require.resolve('tslint-loader'),
+                },
+              ],
+              include: paths.appSrc,
+            }),
         {
           // "oneOf" will traverse all following loaders until one will
           // match the requirements. When no loader matches it will fall
