@@ -1,24 +1,27 @@
 # react-scripts-component
 
-This is a fork of the standard ````react-scripts```` to create react components as modules (umd) designed for including in React Apps
+This is a fork of the standard `react-scripts` to create react components as modules (umd) designed for including in React Apps
 e.g.
+
 ```js
 import Component from 'my-created-component';
 ```
 
-
 ### Usage
-Standard  
+
+Standard
+
 ```sh
 create-react-app {component-name} --scripts-version=react-scripts-component
 ```
 
-TypeScript  
+TypeScript (with TSLint)
+
 ```sh
 create-react-app {component-name} --scripts-version=react-scripts-component --typescript
 ```
 
-* note for typescript: the component build creates declaration files and points to them in the package.json 
+- note for typescript: the component build creates declaration files and points to them in the package.json
 
 This package includes scripts and configuration used by [Create React App](https://github.com/facebook/create-react-app).<br>
 Please refer to its documentation:

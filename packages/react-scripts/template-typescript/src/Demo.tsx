@@ -8,7 +8,7 @@ interface DemoState {
 }
 
 class Demo extends Component {
-  render() {
+  public render() {
     return (
       <div>
         <NewComponent />
