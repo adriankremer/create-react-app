@@ -330,7 +330,7 @@ module.exports = function(webpackEnv) {
             ]
           : [
               {
-                test: /\.ts$/,
+                test: /\.(ts|tsx)$/,
                 enforce: 'pre',
                 use: [
                   {
