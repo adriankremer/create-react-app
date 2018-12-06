@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
+import './component.css';
 
-class NewComponent extends Component {
+interface IComponentProps {
+  text?: string;
+}
+
+class NewComponent extends Component<IComponentProps> {
   public render() {
+    const {
+      text
+    } = this.props;
     return (
-      <div>
-      </div>
+      <button className="New-component">
+        {text}
+      </button>
     );
   }
 }

@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
+import './component.css';
 
 class NewComponent extends Component {
   render() {
-    return (
-      <div>
-      </div>
-    );
+    const { text } = this.props;
+    return <button className="New-component">{text}</button>;
   }
 }
 

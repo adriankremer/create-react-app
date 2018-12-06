@@ -1,0 +1,15 @@
+button.New-component {
+  background: salmon;
+  border-radius: 5px;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: 0;
+  font-size: 1rem;
+  outline: 0;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.1);
+}
+button.New-component:hover {
+  transform: scale(1.2);
+  box-shadow: 10px 10px 0 0 rgba(0, 0, 0, 0.1);
+}
