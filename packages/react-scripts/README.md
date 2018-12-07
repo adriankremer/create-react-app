@@ -9,7 +9,7 @@ import Component from 'my-created-component';
 
 ### Usage
 
-Standard
+ESNext (with ESlint)
 
 ```sh
 create-react-app {component-name} --scripts-version=react-scripts-component
@@ -21,7 +21,7 @@ TypeScript (with TSLint)
 create-react-app {component-name} --scripts-version=react-scripts-component --typescript
 ```
 
-- note for typescript: the component build creates declaration files and points to them in the package.json
+- Note for TypeScript: the component build creates TypeScript declaration files and points to them in the package.json
 
 This package includes scripts and configuration used by [Create React App](https://github.com/facebook/create-react-app).<br>
 Please refer to its documentation:
