@@ -97,16 +97,14 @@ module.exports = function(
   appPackage.main = './build/main.js';
 
   // Set typescript declaration file
-  if(useTypeScript) {
+  if (useTypeScript) {
     appPackage.types = './build/index.d.ts';
   }
 
   // Setup the script rules
   appPackage.scripts = {
     start: 'react-scripts start',
-    build: !useTypeScript ?
-      'react-scripts build' :
-      'react-scripts build && tsc -d --declarationDir ./build/ --emitDeclarationOnly --jsx preserve --allowSyntheticDefaultImports  ./src/react-app-env.d.ts ./src/index.tsx',
+    build: 'react-scripts build',
     test: 'react-scripts test',
     eject: 'react-scripts eject',
   };

@@ -94,12 +94,12 @@ function verifyTypeScriptSetup() {
       suggested: 'es5',
     },
     lib: { suggested: ['dom', 'dom.iterable', 'esnext'] },
-    allowJs: { suggested: true },
     skipLibCheck: { suggested: false },
     esModuleInterop: { suggested: true },
     allowSyntheticDefaultImports: { suggested: true },
     strict: { suggested: true },
     forceConsistentCasingInFileNames: { suggested: true },
+    declarationDir: { suggested: 'build' },
 
     // These values are required and cannot be changed by the user
     // Keep this in sync with the webpack config
@@ -114,8 +114,11 @@ function verifyTypeScriptSetup() {
       reason: 'to match webpack resolution',
     },
     resolveJsonModule: { value: true, reason: 'to match webpack loader' },
-    isolatedModules: { value: true, reason: 'implementation limitation' },
-    noEmit: { value: true },
+
+    // Necessary for declaration file output
+    isolatedModules: { value: false },
+    allowJs: { value: false },
+    declaration: { value: true },
     jsx: {
       parsedValue: ts.JsxEmit.Preserve,
       value: 'preserve',
