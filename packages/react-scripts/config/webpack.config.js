@@ -324,20 +324,22 @@ module.exports = function(webpackEnv) {
         },
         // Second, run ts-loader (if useTypeScript)
         // Used for generating TypeScript declaration files
-        useTypeScript && {
-          test: /\.(ts|tsx)$/,
-          enforce: 'pre',
-          use: [
+        isEnvProduction &&
+          useTypeScript &&
             {
-              loader: require.resolve('ts-loader'),
-              options: {
-                configFile: require.resolve('react-scripts-component/config/tsconfig.declaration.json'),
-                context: paths.appPath
-              }
+              test: /\.(ts|tsx)$/,
+              enforce: 'pre',
+              use: [
+                {
+                  loader: require.resolve('ts-loader'),
+                  options: {
+                    configFile: require.resolve('react-scripts-component/config/tsconfig.declaration.json'),
+                    context: paths.appPath
+                  }
+                },
+              ],
+              include: paths.appSrc,
             },
-          ],
-          include: paths.appSrc,
-        },
         {
           // "oneOf" will traverse all following loaders until one will
           // match the requirements. When no loader matches it will fall

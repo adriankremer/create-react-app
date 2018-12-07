@@ -2,10 +2,14 @@
   "compilerOptions": {
     "declaration": true,
     "declarationDir": "build",
-    "jsx": "preserve",
     "allowSyntheticDefaultImports": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "jsx": "preserve"
   },
   "include": [
-    "src/index.ts"
+    "src/index.ts",
+    "src/react-app-env.d.ts"
   ]
 }
