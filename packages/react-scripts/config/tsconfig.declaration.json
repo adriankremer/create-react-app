@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "build",
+    "jsx": "preserve",
+    "allowSyntheticDefaultImports": true,
+  },
+  "include": [
+    "src/index.ts"
+  ]
+}

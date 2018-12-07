@@ -94,12 +94,12 @@ function verifyTypeScriptSetup() {
       suggested: 'es5',
     },
     lib: { suggested: ['dom', 'dom.iterable', 'esnext'] },
-    skipLibCheck: { suggested: false },
+    allowJs: { suggested: true },
+    skipLibCheck: { suggested: true },
     esModuleInterop: { suggested: true },
     allowSyntheticDefaultImports: { suggested: true },
     strict: { suggested: true },
     forceConsistentCasingInFileNames: { suggested: true },
-    declarationDir: { suggested: 'build' },
 
     // These values are required and cannot be changed by the user
     // Keep this in sync with the webpack config
@@ -114,11 +114,8 @@ function verifyTypeScriptSetup() {
       reason: 'to match webpack resolution',
     },
     resolveJsonModule: { value: true, reason: 'to match webpack loader' },
-
-    // Necessary for declaration file output
-    isolatedModules: { value: false },
-    allowJs: { value: false },
-    declaration: { value: true },
+    isolatedModules: { value: true, reason: 'implementation limitation' },
+    noEmit: { value: true },
     jsx: {
       parsedValue: ts.JsxEmit.Preserve,
       value: 'preserve',
@@ -219,7 +216,7 @@ function verifyTypeScriptSetup() {
 
   // tsconfig will have the merged "include" and "exclude" by this point
   if (parsedTsConfig.include == null) {
-    appTsConfig.include = ['src/index.ts'];
+    appTsConfig.include = ['src'];
     messages.push(
       `${chalk.cyan('include')} should be ${chalk.cyan.bold('src')}`
     );
@@ -255,7 +252,7 @@ function verifyTypeScriptSetup() {
   if (!fs.existsSync(paths.appTypeDeclarations)) {
     fs.writeFileSync(
       paths.appTypeDeclarations,
-      `/// <reference types="react-scripts-component" />${os.EOL}`
+      `/// <reference types="react-scripts" />${os.EOL}`
     );
   }
 }

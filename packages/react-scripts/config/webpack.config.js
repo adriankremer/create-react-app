@@ -330,6 +330,10 @@ module.exports = function(webpackEnv) {
           use: [
             {
               loader: require.resolve('ts-loader'),
+              options: {
+                configFile: require.resolve('react-scripts-component/config/tsconfig.declaration.json'),
+                context: paths.appPath
+              }
             },
           ],
           include: paths.appSrc,
