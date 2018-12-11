@@ -1,6 +1,6 @@
 {
   "name": "react-scripts-component",
-  "version": "2.2.28",
+  "version": "2.2.29",
   "description": "Configuration and scripts for Create React components.",
   "repository": "adriankremer/create-react-app/tree/create-react-component/packages/react-scripts",
   "license": "MIT",
